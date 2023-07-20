@@ -1,12 +1,10 @@
 import styles from "./style";
-import { Text, Button } from "react-native";
+import { View, Text } from "react-native";
 
-export default function menuSide() {
+export default function BotSide() {
     return (
-      <View styles={styles.top}>
-        <Button>
-            <Image></Image>
-        </Button>
+      <View style={styles.side}>
+        <Text style={styles.text}>24:00</Text>
       </View>
     );
   }

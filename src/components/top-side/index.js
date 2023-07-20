@@ -1,10 +1,10 @@
 import styles from "./style";
-import { Text } from "react-native";
+import { View, Text } from "react-native";
 
-export default function topSide() {
+export default function TopSide() {
     return (
-      <View styles={styles.top}>
-        <Text>24:00</Text>
+      <View style={styles.side}>
+        <Text style={styles.text}>24:00</Text>
       </View>
     );
   }

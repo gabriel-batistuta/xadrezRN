@@ -1,11 +1,19 @@
 import { StyleSheet } from "react-native"
 
 const styles = StyleSheet.create({
-    top: {
+    text: {
         textAlign: 'center',
         fontFamily: 'Arial',
         color: 'black',
-        backgroundColor: 'gray'
+        fontSize: '26',
+        fontWeight: 'bold'
+    },
+    side: {
+        flex: '1',
+        alignItems: 'center',
+        backgroundColor: 'gray',
+        height: '45vh',
+        width: '100%'
     }
 });
 
