@@ -1,19 +1,24 @@
-import { StyleSheet } from "react-native"
+import { StyleSheet } from "react-native";
 
 styles = StyleSheet.create({
-    container: {
-        flex: 1,
-        justifyContent: 'center',
-        alignItems: 'center',
-    }, text: {
-        fontFamily: 'Arial'
-    }, buttonImageIconStyle: {
-        padding: 10, 
-        margin: 5, 
-        height: 25, 
-        width: 25, 
-        resizeMode: 'stretch', 
-    }
-})
+  container: {
+    flex: 1,
+    flexDirection: "row",
+    justifyContent: "center",
+    alignItems: "center",
+    backgroundColor: "#322E2B",
+    height: "10%",
+    width: "100%",
+    justifyContent: "space-evenly",
+    alignItems: "center",
+  },
+  button: {
+    justifyContent: "center",
+    alignItems: "center",
+    backgroundColor: `#8A8987`,
+    height: "45%",
+    width: "100%",
+  },
+});
 
-export default styles
+export default styles;
