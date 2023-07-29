@@ -1,19 +1,29 @@
-import React from 'react';
-import { Text, View, TouchableOpacity } from 'react-native';
+import React, { useState, useEffect } from 'react';
+import { Text, View, TouchableOpacity, StyleSheet } from 'react-native';
 import styles from './style';
 
 export default function MenuSide() {
-    return (
-      <View style={styles.container}>
-        <Text style={styles.timer}>{`${minutes}:${seconds}`}</Text>
-        <View style={styles.buttonsContainer}>
-          <TouchableOpacity onPress={toggle} style={[styles.button, styles.startButton]}>
-            <Text style={styles.buttonText}>{isActive ? 'Pause' : 'Start'}</Text>
-          </TouchableOpacity>
-          <TouchableOpacity onPress={reset} style={[styles.button, styles.reloadButton]}>
-            <Text style={styles.buttonText}>Reload</Text>
-          </TouchableOpacity>      
-        </View>
-      </View>
-    );
+  
+  const [time, setTime] = useState(60)
+
+  const [imagePlay, setImagePlay] = useState('../assets/play.png')
+
+  function changeImage() {
+    if (imagePlay != "../assets/play.png") {
+      setImagePlay("../assets/play.png")
+    } else {
+      setImagePlay("../assets/pause.png")
+    }
   }
+
+  return (
+    <View>
+      <TouchableOpacity  onPress={changeImage} style={styles.buttonStyle} activeOpacity={0.5}> 
+        <Image 
+          source={require({imagePlay})} 
+          style={styles.buttonImageIconStyle} 
+        /> 
+      </TouchableOpacity>
+    </View>
+  )
+}
