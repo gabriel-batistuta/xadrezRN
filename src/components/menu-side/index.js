@@ -1,20 +1,19 @@
-import styles from "./style";
-import { View, Text, Button, TouchableOpacity } from "react-native";
+import React from 'react';
+import { Text, View, TouchableOpacity } from 'react-native';
+import styles from './style';
 
 export default function MenuSide() {
     return (
-      <View styles={styles.side}>
-        <TouchableOpacity style={styles.FacebookStyle} activeOpacity={0.5}>
-          <Image
-          source={{ uri : '.../assets/pause.png' }}
-          style={styles.ImageIconStyle}
-          />
-          <View style={styles.SeparatorLine} />
-          <Text style={styles.TextStyle}> Login Using Facebook </Text>
-        </TouchableOpacity>
-        {/* <Button>
-            <Image source={{ uri:".../assets/pause.png" }}/>
-        </Button> */}
+      <View style={styles.container}>
+        <Text style={styles.timer}>{`${minutes}:${seconds}`}</Text>
+        <View style={styles.buttonsContainer}>
+          <TouchableOpacity onPress={toggle} style={[styles.button, styles.startButton]}>
+            <Text style={styles.buttonText}>{isActive ? 'Pause' : 'Start'}</Text>
+          </TouchableOpacity>
+          <TouchableOpacity onPress={reset} style={[styles.button, styles.reloadButton]}>
+            <Text style={styles.buttonText}>Reload</Text>
+          </TouchableOpacity>      
+        </View>
       </View>
     );
   }
