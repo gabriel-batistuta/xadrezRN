@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { Text, View, TouchableOpacity, StyleSheet } from 'react-native';
+import { Text, View, TouchableOpacity, StyleSheet, Image } from 'react-native';
 import styles from './style';
 
 export default function MenuSide() {
@@ -18,11 +18,11 @@ export default function MenuSide() {
 
   return (
     <View>
-      <TouchableOpacity  onPress={changeImage} style={styles.buttonStyle} activeOpacity={0.5}> 
-        <Image 
-          source={require({imagePlay})} 
+      <TouchableOpacity onPress={changeImage} style={styles.buttonStyle} activeOpacity={0.5}> 
+        {/* <Image
+          source={require("../assets/play.png")} 
           style={styles.buttonImageIconStyle} 
-        /> 
+        />  */}
       </TouchableOpacity>
     </View>
   )
