@@ -1,7 +1,7 @@
 import react, { useState, useEffect } from "react";
 import { StyleSheet, View, TouchableOpacity, Text } from "react-native";
 
-const ButtonSwitch = ({ active, onPress }) => {
+const ButtonSwitch = ({ active, onPress, rotate }) => {
   const [time, setTime] = useState(60);
   const [isActive, setIsActive] = useState(false);
 
@@ -50,6 +50,15 @@ const ButtonSwitch = ({ active, onPress }) => {
       alignItems: "center",
       margin: 0,
     },
+    buttonRotate: {
+      backgroundColor: buttonColor,
+      flex: 1,
+      alignItems: "center",
+      justifyContent: "center",
+      height: "100%",
+      width: "100%",
+      transform: [{ rotate: "180deg" }],
+    },
     button: {
       backgroundColor: buttonColor,
       flex: 1,
@@ -66,7 +75,10 @@ const ButtonSwitch = ({ active, onPress }) => {
 
   return (
     <View style={styles.container}>
-      <TouchableOpacity onPress={touchAction} style={styles.button}>
+      <TouchableOpacity
+        onPress={touchAction}
+        style={rotate ? styles.buttonRotate : styles.button}
+      >
         <Text style={styles.text}>{time}</Text>
       </TouchableOpacity>
     </View>
