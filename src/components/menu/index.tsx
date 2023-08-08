@@ -6,6 +6,8 @@ const Menu = ({ onPress }) => {
   const [seconds, setSeconds] = useState(60);
   const [isActive, setIsActive] = useState(false);
 
+  const timeColor = isActive ? "red" : "white";
+
   // Função para lidar com o clique no botão de pausar/iniciar o timer
   const handleTimerToggle = () => {
     setIsActive((prevIsActive) => !prevIsActive);
@@ -38,6 +40,22 @@ const Menu = ({ onPress }) => {
     resetTimer();
   }
 
+  const styles = StyleSheet.create({
+    container: {
+      flexDirection: "row",
+      justifyContent: "space-around",
+      alignItems: "center",
+      padding: 8,
+      width: "100%",
+      backgroundColor: "black",
+    },
+    text: {
+      fontSize: 20,
+      fontWeight: "bold",
+      color: timeColor,
+    },
+  });
+
   return (
     <View style={styles.container}>
       <TouchableOpacity onPress={reloadTouch}>
@@ -56,21 +74,5 @@ const Menu = ({ onPress }) => {
     </View>
   );
 };
-
-const styles = StyleSheet.create({
-  container: {
-    flexDirection: "row",
-    justifyContent: "space-around",
-    alignItems: "center",
-    padding: 8,
-    width: "100%",
-    backgroundColor: "black",
-  },
-  text: {
-    fontSize: 20,
-    fontWeight: "bold",
-    color: "white",
-  },
-});
 
 export default Menu;

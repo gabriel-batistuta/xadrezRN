@@ -1,6 +1,6 @@
 import react, { useState } from "react";
-import { StyleSheet, View } from "react-native";
-import ButtonSwitch from "./src/components/button";
+import { StyleSheet, View, StatusBar } from "react-native";
+import ButtonPlayer from "./src/components/button";
 import Menu from "./src/components/menu";
 
 export default function App() {
@@ -8,7 +8,7 @@ export default function App() {
   const [componentAActive, setComponentAActive] = useState(false);
   const [componentBActive, setComponentBActive] = useState(false);
 
-  // ativa o botão do jogador de cima e desativa o de baixo 
+  // ativa o botão do jogador de cima e desativa o de baixo
   const activateComponentA = () => {
     setComponentAActive(true);
     setComponentBActive(false);
@@ -20,26 +20,32 @@ export default function App() {
     setComponentBActive(true);
   };
 
-  // reload
+  // reload do menu - desativa os dois botões
   const desactiveComponents = () => {
     setComponentAActive(false);
     setComponentBActive(false);
   };
 
   // pause geral
-  const pauseComponents = () {
+  // const pauseComponents = () {
 
-  }
+  // }
 
   return (
     <View style={styles.container}>
-      <ButtonSwitch
+      <StatusBar
+        barStyle="light-content"
+        hidden={true}
+        backgroundColor="black"
+        networkActivityIndicatorVisible={true}
+      />
+      <ButtonPlayer
         active={componentAActive}
         onPress={activateComponentA}
         rotate={true}
       />
       <Menu onPress={desactiveComponents} />
-      <ButtonSwitch
+      <ButtonPlayer
         active={componentBActive}
         onPress={activateComponentB}
         rotate={false}

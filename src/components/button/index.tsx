@@ -1,32 +1,39 @@
 import react, { useState, useEffect } from "react";
 import { StyleSheet, View, TouchableOpacity, Text } from "react-native";
 
-const ButtonSwitch = ({ active, onPress, rotate }) => {
-  const [time, setTime] = useState(60);
+const ButtonPlayer = ({ active, onPress, rotate }) => {
+  // tempo de cada jogador
+  const initialTime = 120;
+
+  const [time, setTime] = useState(initialTime);
+  const minutes = Math.floor(time / 60)
+    .toString()
+    .padStart(2, "0");
+  const seconds = (time % 60).toString().padStart(2, "0");
   const [isActive, setIsActive] = useState(false);
 
   const buttonColor = active ? "#7FA751" : "#8A8987";
+  const textColor = active ? "white" : "black";
 
   const handleTimerToggle = () => {
     setIsActive((prevIsActive) => !prevIsActive);
   };
 
   const resetTimer = () => {
-    setTime(60);
+    setTime(initialTime);
     setIsActive(false);
   };
 
   // Efeito para atualizar o timer a cada segundo
   useEffect(() => {
-    let interval = null;
-
     if (active === false) {
       resetTimer();
     }
 
+    let interval = null;
     if (isActive && time > 0) {
       interval = setInterval(() => {
-        setTime((prevTime) => prevTime - 1);
+        setTime((time) => time - 1);
       }, 1000);
     } else if (time === 0) {
       resetTimer();
@@ -69,7 +76,7 @@ const ButtonSwitch = ({ active, onPress, rotate }) => {
     },
     text: {
       fontSize: 70,
-      color: "white",
+      color: textColor,
       fontWeight: "bold",
     },
   });
@@ -80,10 +87,10 @@ const ButtonSwitch = ({ active, onPress, rotate }) => {
         onPress={touchAction}
         style={rotate ? styles.buttonRotate : styles.button}
       >
-        <Text style={styles.text}>{time}</Text>
+        <Text style={styles.text}>{`${minutes}:${seconds}`}</Text>
       </TouchableOpacity>
     </View>
   );
 };
 
-export default ButtonSwitch;
+export default ButtonPlayer;
