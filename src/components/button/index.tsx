@@ -70,6 +70,7 @@ const ButtonSwitch = ({ active, onPress, rotate }) => {
     text: {
       fontSize: 70,
       color: "white",
+      fontWeight: "bold",
     },
   });
 

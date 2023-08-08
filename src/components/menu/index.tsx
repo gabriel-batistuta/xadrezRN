@@ -2,7 +2,7 @@ import react, { useState, useEffect } from "react";
 import { StyleSheet, View, TouchableOpacity, Text } from "react-native";
 import { Entypo } from "@expo/vector-icons";
 
-const Menu = (onPress) => {
+const Menu = ({ onPress }) => {
   const [seconds, setSeconds] = useState(60);
   const [isActive, setIsActive] = useState(false);
 
